@@ -121,7 +121,7 @@
                         <a href="#">Toastify</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="extra-component-rating.html">Rating</a>
+                        <a href="extra-">Rating</a>
                     </li>
                     <li class="submenu-item ">
                         <a href="extra-component-divider.html">Divider</a>

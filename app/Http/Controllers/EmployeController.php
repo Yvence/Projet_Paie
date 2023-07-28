@@ -38,7 +38,7 @@ class EmployeController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        Employé::create($request->all());
     }
 
     /**

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\defautController;
+use App\Http\Controllers\EmployeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -14,10 +16,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Auth::routes();
-
+Route::get('/welcome', [App\http\Controllers\defautController::class,'index'])->name('welcome');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::prefix('Employés')->group(function(){
+ Route::get('/',[EmployeController::class,'index'])->name('Employé.index');
+ Route::get('/create',[EmployeController::class,'create'])->name('Employé.create');
+ Route::get('/edit/{Employé}',[EmployeController::class,'edit'])->name('Employé.edit');
+});
+

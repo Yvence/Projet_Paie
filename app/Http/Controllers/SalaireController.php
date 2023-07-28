@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Employer;
+use App\Models\Salaire;
 use Illuminate\Http\Request;
 
-class EmployerController extends Controller
+class SalaireController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class EmployerController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Employer  $employer
+     * @param  \App\Models\Salaire  $salaire
      * @return \Illuminate\Http\Response
      */
-    public function show(Employer $employer)
+    public function show(Salaire $salaire)
     {
         //
     }
@@ -52,10 +52,10 @@ class EmployerController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Employer  $employer
+     * @param  \App\Models\Salaire  $salaire
      * @return \Illuminate\Http\Response
      */
-    public function edit(Employer $employer)
+    public function edit(Salaire $salaire)
     {
         //
     }
@@ -64,10 +64,10 @@ class EmployerController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Employer  $employer
+     * @param  \App\Models\Salaire  $salaire
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Employer $employer)
+    public function update(Request $request, Salaire $salaire)
     {
         //
     }
@@ -75,10 +75,10 @@ class EmployerController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Employer  $employer
+     * @param  \App\Models\Salaire  $salaire
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Employer $employer)
+    public function destroy(Salaire $salaire)
     {
         //
     }

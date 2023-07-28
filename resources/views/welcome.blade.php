@@ -75,7 +75,7 @@
                 </a>
                 <ul class="submenu ">
                     <li class="submenu-item ">
-                        <a href="#">Ajout</a>
+                        <a href="{{route('Departement.create')}}">Ajout</a>
                     </li>
                     <li class="submenu-item ">
                         <a href="#">Liste</a>

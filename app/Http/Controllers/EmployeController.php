@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Employé;
+use App\Models\Departement;
 
 class EmployeController extends Controller
 {
@@ -25,7 +26,8 @@ class EmployeController extends Controller
      */
     public function create()
     {
-        return view('Employé.create');
+        $departements=Departement::all();
+        return view('Employé.create',compact('departements'));
     }
 
     /**
@@ -36,7 +38,7 @@ class EmployeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request);
     }
 
     /**

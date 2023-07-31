@@ -35,7 +35,7 @@ Route::prefix('Employés')->group(function(){
  Route::get('/',[EmployeController::class,'index'])->name('Employé.index');
  Route::get('/create',[EmployeController::class,'create'])->name('Employé.create');
  Route::get('/edit/{Employé}',[EmployeController::class,'edit'])->name('Employé.edit');
- Route::post('/store',[EmployeController::class])->name('Employé.store');
+ Route::post('/store',[EmployeController::class,'store'])->name('Employé.store');
 });
 //bonjour je suis ici
 

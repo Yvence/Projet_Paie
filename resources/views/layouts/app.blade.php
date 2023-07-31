@@ -17,8 +17,8 @@
 
     <!-- Styles -->
     
-    <link rel="stylesheet" href="{{asset('admin/assets/css/main/app.css')}}">
-    <link rel="stylesheet" href="{{asset('admin/assets/css/main/app-dark.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/main/app.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/main/app-dark.css')}}">
 </head>
 <body>
     <div id="app">

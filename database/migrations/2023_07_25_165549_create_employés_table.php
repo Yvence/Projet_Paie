@@ -17,11 +17,8 @@ class CreateEmployésTable extends Migration
             $table->id();
             $table->string('nom');
             $table->string('prenom');
-            $table->string('email',255);
-            $table->string('Contact');
-            $table->string('adresse');
             $table->string('sexe');
-            $table->integer('montant_journalier')->nullable();
+            $table->date('date');
             $table->unsignedBigInteger('departement_id');
             $table->foreign('departement_id')->references('id')->on('departements');
             $table->timestamps();

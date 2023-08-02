@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Models\Contrat;
 use Illuminate\Http\Request;
-use App\Models\Employé;
-use App\Models\Departement;
 
-class EmployeController extends Controller
+class ContratController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +14,9 @@ class EmployeController extends Controller
      */
     public function index()
     {
-        $employé=Employé::all();
-        return view('Employé.index',['employés'=>$employé]);
+        $contrat=Contrat::all();
+        return view('Contrat.index',['contrats'=>$contrat]);
     }
-    
 
     /**
      * Show the form for creating a new resource.
@@ -28,9 +25,7 @@ class EmployeController extends Controller
      */
     public function create()
     {
-        $departements=Departement::all();
-        
-        return view('Employé.create',compact('departements'));
+        return view ('Contrat.create');
     }
 
     /**
@@ -41,17 +36,17 @@ class EmployeController extends Controller
      */
     public function store(Request $request)
     {
-        Employé::create($request->all());
-        return redirect()->route('Employé.index');
+        Contrat::create($request->all());
+        return redirect()->route('Contrat.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Contrat  $contrat
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Contrat $contrat)
     {
         //
     }
@@ -59,23 +54,22 @@ class EmployeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Contrat  $contrat
      * @return \Illuminate\Http\Response
      */
-    public function edit(Employé $employé)
+    public function edit(Contrat $contrat)
     {
-        $departements=Departement::all();
-        return view('Employé.edit',['employé'=>$employé],compact('departements'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Contrat  $contrat
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Contrat $contrat)
     {
         //
     }
@@ -83,10 +77,10 @@ class EmployeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Contrat  $contrat
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Contrat $contrat)
     {
         //
     }

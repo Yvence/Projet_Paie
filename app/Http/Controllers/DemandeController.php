@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Models\Demande;
 use Illuminate\Http\Request;
-use App\Models\Employé;
-use App\Models\Departement;
 
-class EmployeController extends Controller
+class DemandeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +14,10 @@ class EmployeController extends Controller
      */
     public function index()
     {
-        $employé=Employé::all();
-        return view('Employé.index',['employés'=>$employé]);
-    }
+        $demande=Demande::all();
+        return view('Demande.index',['demandes'=>$demande]);
     
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -28,9 +26,7 @@ class EmployeController extends Controller
      */
     public function create()
     {
-        $departements=Departement::all();
-        
-        return view('Employé.create',compact('departements'));
+        return view('Demande.create');
     }
 
     /**
@@ -41,17 +37,17 @@ class EmployeController extends Controller
      */
     public function store(Request $request)
     {
-        Employé::create($request->all());
-        return redirect()->route('Employé.index');
+        Demande::create($request->all());
+        return redirect()->route('Demande.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Demande  $demande
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Demande $demande)
     {
         //
     }
@@ -59,23 +55,22 @@ class EmployeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Demande  $demande
      * @return \Illuminate\Http\Response
      */
-    public function edit(Employé $employé)
+    public function edit(Demande $demande)
     {
-        $departements=Departement::all();
-        return view('Employé.edit',['employé'=>$employé],compact('departements'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Demande  $demande
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Demande $demande)
     {
         //
     }
@@ -83,10 +78,10 @@ class EmployeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Demande  $demande
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Demande $demande)
     {
         //
     }

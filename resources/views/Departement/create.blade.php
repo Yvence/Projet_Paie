@@ -9,8 +9,8 @@
     <div class="container border">
 
     <div class="mb-3">
-      <h2>Ajouter un Departement</h2>
-      <input type="text" name="nom" id="nom" class="form-control" placeholder="Entrez departement" aria-describedby="helpId" required>
+      <h2>Ajouter une Fonction</h2>
+      <input type="text" name="nom" id="nom" class="form-control" placeholder="Entrez la fonction" aria-describedby="helpId" required>
     </div>
     
 

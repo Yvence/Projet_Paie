@@ -53,7 +53,7 @@
                 class="sidebar-item  has-sub">
                 <a href="#" class='sidebar-link'>
                     <i class="bi bi-stack"></i>
-                    <span>Employé</span>
+                    <span>Personnel</span>
                 </a>
                 <ul class="submenu ">
                     <li class="submenu-item ">
@@ -71,18 +71,53 @@
                 class="sidebar-item  has-sub">
                 <a href="#" class='sidebar-link'>
                     <i class="bi bi-collection-fill"></i>
-                    <span>Departements</span>
+                    <span>Fonction</span>
                 </a>
                 <ul class="submenu ">
                     <li class="submenu-item ">
                         <a href="{{route('Departement.create')}}">Ajout</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="#">Liste</a>
+                        <a href="{{route('Departement.index')}}">Liste</a>
                     </li>
                     
                 </ul>
             </li>
+            <li
+                class="sidebar-item  has-sub">
+                <a href="#" class='sidebar-link'>
+                    <i class="bi bi-stack"></i>
+                    <span>Contrat</span>
+                </a>
+                <ul class="submenu ">
+                    <li class="submenu-item ">
+                        <a href="{{route('Contrat.create')}}">Ajout</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="{{route('Contrat.index')}}">Liste</a>
+                    </li>
+                    
+
+                </ul>
+            </li>
+            <li
+                class="sidebar-item  has-sub">
+                <a href="#" class='sidebar-link'>
+                    <i class="bi bi-stack"></i>
+                    <span>Demande de Fiche</span>
+                </a>
+                <ul class="submenu ">
+                    <li class="submenu-item ">
+                        <a href="{{route('Demande.create')}}">Ajout</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="{{route('Demande.index')}}">Liste</a>
+                    </li>
+                    
+
+                </ul>
+            </li>
+            
             
             <li
                 class="sidebar-item  has-sub">

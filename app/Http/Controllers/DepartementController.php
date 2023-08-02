@@ -14,7 +14,8 @@ class DepartementController extends Controller
      */
     public function index()
     {
-        
+        $departement=Departement::all();
+        return view('Departement.index',['departements'=>$departement]);
     }
     
 
@@ -37,7 +38,7 @@ class DepartementController extends Controller
      public function store(Request $request)
     {
         Departement::create($request->all());
-        return redirect()->route('Departement.create');
+        return redirect()->route('Departement.index');
     }
 
     /**
@@ -59,7 +60,9 @@ class DepartementController extends Controller
      */
     public function edit(Departement $departement)
     {
-        //
+        
+        return view('Departement.edit',['departement'=>$departement]);
+    
     }
 
     /**

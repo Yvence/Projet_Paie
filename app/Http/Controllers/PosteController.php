@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Avantage;
+use App\Models\Poste;
+use App\Models\Service;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Request as HttpFoundationRequest;
 
-class AvantageController extends Controller
+class PosteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class AvantageController extends Controller
      */
     public function index()
     {
-        $avantage=Avantage::all();
-        return view('Avantage.index',['avantages'=>$avantage]);
+        $poste=Poste::all();
+        return view('Poste.index',['postes'=>$poste]);
     }
 
     /**
@@ -26,7 +26,9 @@ class AvantageController extends Controller
      */
     public function create()
     {
-        return view('Avantage.create');
+        $services=Service::all();
+        
+        return view('Poste.create',compact('services'));
     }
 
     /**
@@ -37,17 +39,17 @@ class AvantageController extends Controller
      */
     public function store(Request $request)
     {
-        Avantage::create($request->all());
-        return redirect()->route('Avantage.index');
+        Poste::create($request->all());
+        return redirect()->route('Poste.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Avantage  $avantage
+     * @param  \App\Models\Poste  $poste
      * @return \Illuminate\Http\Response
      */
-    public function show(Avantage $avantage)
+    public function show(Poste $poste)
     {
         //
     }
@@ -55,39 +57,33 @@ class AvantageController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
+     * @param  \App\Models\Poste  $poste
      * @return \Illuminate\Http\Response
-     * @param  \Illuminate\Http\Request  $request
      */
-    public function edit(Request $request,$id=null)
+    public function edit(Poste $poste)
     {
-        $id=$request->query->get("id");
-        $avantage=Avantage::find($id);
-        dd($avantage,$id); 
-        return view('Avantage.edit',['avantage'=>$avantage]);
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Avantage  $avantage
+     * @param  \App\Models\Poste  $poste
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Poste $poste)
     {
-        //$avantage=Avantage::find($id);
-        $avantage=new Avantage();
-        $avantage->update($request->all());
-        return redirect()->route('Avantage.index');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Avantage  $avantage
+     * @param  \App\Models\Poste  $poste
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Avantage $avantage)
+    public function destroy(Poste $poste)
     {
         //
     }

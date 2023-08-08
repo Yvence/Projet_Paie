@@ -17,10 +17,10 @@ class CreateEmployésTable extends Migration
             $table->id();
             $table->string('nom');
             $table->string('prenom');
-            $table->string('sexe');
-            $table->date('date');
-            $table->unsignedBigInteger('departement_id');
-            $table->foreign('departement_id')->references('id')->on('departements');
+            $table->string('telephone');
+            $table->string('matricule',15)->unique();
+            $table->date('date_naissance');
+            $table->string('email');
             $table->timestamps();
         });
     }

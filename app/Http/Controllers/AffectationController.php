@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Avantage;
+use App\Models\Affectation;
+use App\Models\Poste;
+use App\Models\Employé;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Request as HttpFoundationRequest;
 
-class AvantageController extends Controller
+class AffectationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +16,8 @@ class AvantageController extends Controller
      */
     public function index()
     {
-        $avantage=Avantage::all();
-        return view('Avantage.index',['avantages'=>$avantage]);
+        $affectation=Affectation::all();
+        return view('Affectation.index',['affectations'=>$affectation]);
     }
 
     /**
@@ -26,7 +27,10 @@ class AvantageController extends Controller
      */
     public function create()
     {
-        return view('Avantage.create');
+        $personnels=Employé::all();
+        $postes=Poste::all();
+        
+        return view('Affectation.create',compact('personnels','postes'));
     }
 
     /**
@@ -37,17 +41,17 @@ class AvantageController extends Controller
      */
     public function store(Request $request)
     {
-        Avantage::create($request->all());
-        return redirect()->route('Avantage.index');
+        Affectation::create($request->all());
+        return redirect()->route('Affectation.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Avantage  $avantage
+     * @param  \App\Models\Affectation  $affectation
      * @return \Illuminate\Http\Response
      */
-    public function show(Avantage $avantage)
+    public function show(Affectation $affectation)
     {
         //
     }
@@ -55,39 +59,33 @@ class AvantageController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
+     * @param  \App\Models\Affectation  $affectation
      * @return \Illuminate\Http\Response
-     * @param  \Illuminate\Http\Request  $request
      */
-    public function edit(Request $request,$id=null)
+    public function edit(Affectation $affectation)
     {
-        $id=$request->query->get("id");
-        $avantage=Avantage::find($id);
-        dd($avantage,$id); 
-        return view('Avantage.edit',['avantage'=>$avantage]);
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Avantage  $avantage
+     * @param  \App\Models\Affectation  $affectation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Affectation $affectation)
     {
-        //$avantage=Avantage::find($id);
-        $avantage=new Avantage();
-        $avantage->update($request->all());
-        return redirect()->route('Avantage.index');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Avantage  $avantage
+     * @param  \App\Models\Affectation  $affectation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Avantage $avantage)
+    public function destroy(Affectation $affectation)
     {
         //
     }

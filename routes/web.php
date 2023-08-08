@@ -1,11 +1,19 @@
 <?php
 
+use App\Http\Controllers\AffectationController;
+use App\Http\Controllers\AvantageController;
 use App\Http\Controllers\defautController;
 use App\Http\Controllers\DepartementController;
 use App\Http\Controllers\EmployeController;
 use App\Http\Controllers\ContratController;
 use App\Http\Controllers\DemandeController;
+use App\Http\Controllers\FicheController;
+use App\Http\Controllers\PosteController;
+use App\Http\Controllers\RetenuController;
+use App\Http\Controllers\ServiceController;
+use App\Models\Affectation;
 use App\Models\Departement;
+use App\Models\Service;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -51,5 +59,43 @@ Route::prefix('Contrats')->group(function(){
     Route::get('/edit',[DemandeController::class,'edit'])->name('Demande.edit');
     Route::post('/store',[DemandeController::class,'store'])->name('Demande.store');
    });
-
+   Route::prefix('Affectation')->group(function(){
+    Route::get('/',[AffectationController::class,'index'])->name('Affectation.index');
+    Route::get('/create',[AffectationController::class,'create'])->name('Affectation.create');
+    Route::get('/edit',[AffectationController::class,'edit'])->name('Affectation.edit');
+    Route::post('/store',[AffectationController::class,'store'])->name('Affectation.store');
+   });
+   Route::prefix('Service')->group(function(){
+    Route::get('/',[ServiceController::class,'index'])->name('Service.index');
+    Route::get('/create',[ServiceController::class,'create'])->name('Service.create');
+    Route::get('/edit',[ServiceController::class,'edit'])->name('Service.edit');
+    Route::post('/store',[ServiceController::class,'store'])->name('Service.store');
+   });
+   Route::prefix('Poste')->group(function(){
+    Route::get('/',[PosteController::class,'index'])->name('Poste.index');
+    Route::get('/create',[PosteController::class,'create'])->name('Poste.create');
+    Route::get('/edit',[PosteController::class,'edit'])->name('Poste.edit');
+    Route::post('/store',[PosteController::class,'store'])->name('Poste.store');
+   });
+   Route::prefix('Avantage')->group(function(){
+    Route::get('/',[AvantageController::class,'index'])->name('Avantage.index');
+    Route::get('/create',[AvantageController::class,'create'])->name('Avantage.create');
+    Route::get('/edit/{id}/iii',[AvantageController::class,'edit'])->name('Avantage.edit');
+    Route::post('/store',[AvantageController::class,'store'])->name('Avantage.store');
+    Route::post('/update',[AvantageController::class,'update'])->name('Avantage.update');
+   });
+   Route::prefix('Retenues')->group(function(){
+    Route::get('/',[RetenuController::class,'index'])->name('Retenu.index');
+    Route::get('/create',[RetenuController::class,'create'])->name('Retenu.create');
+    Route::get('/edit',[RetenuController::class,'edit'])->name('Retenu.edit');
+    Route::post('/store',[RetenuController::class,'store'])->name('Retenu.store');
+   });
+   Route::prefix('Fiches')->group(function(){
+    Route::get('/',[FicheController::class,'index'])->name('Fiche.index');
+    Route::get('/create',[FicheController::class,'create'])->name('Fiche.create');
+    Route::get('/edit',[FicheController::class,'edit'])->name('Fiche.edit');
+    Route::post('/store',[FicheController::class,'store'])->name('Fiche.store');
+   });
+   
+   
 

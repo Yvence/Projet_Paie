@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Contrat extends Model
 {
     use HasFactory;
-    protected $fillable=['date_debut','date_fin','statut','salaire_base'];
+    protected $fillable=['numero','date_debut','date_fin','statut','salaire_base'];
 }

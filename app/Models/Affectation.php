@@ -5,8 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Employé extends Model
+class Affectation extends Model
 {
     use HasFactory;
-    protected $fillable=['nom','prenom','telephone','date_naissance','matricule','email'];
+    protected $fillable=['nom','employé_nom','poste_nom'];
+
 }

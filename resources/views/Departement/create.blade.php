@@ -9,16 +9,18 @@
     <div class="container border">
 
     <div class="mb-3">
-      <h2>Ajouter une Fonction</h2>
-      <input type="text" name="nom" id="nom" class="form-control" placeholder="Entrez la fonction" aria-describedby="helpId" required>
+      <h2>Ajouter Un Departement</h2>
+      <input type="text" name="nom" id="nom" class="form-control" placeholder="Entrez le departement" aria-describedby="helpId" required>
     </div>
+    <div class="row">
+       <div class="col-12 d-flex justify-content-end">
+              <button type="submit" class="btn btn-primary me-1 mb-1">Soumettre</button>
+              <button type="reset" class="btn btn-light-secondary me-1 mb-1">Annuler</button>
+        </div>
+     </div>
     
-
-    <center><button class="btn btn-primary" type="submit" id="valider">Envoyer</button>
-     <button class="btn btn-secondary" type="reset" id="Effacer">Effacer</button>
-  </center>
-     
-    </div>
+     </div>
+    
 
   
 

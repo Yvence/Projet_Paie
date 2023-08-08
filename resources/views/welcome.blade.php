@@ -71,7 +71,7 @@
                 class="sidebar-item  has-sub">
                 <a href="#" class='sidebar-link'>
                     <i class="bi bi-collection-fill"></i>
-                    <span>Fonction</span>
+                    <span>Departement</span>
                 </a>
                 <ul class="submenu ">
                     <li class="submenu-item ">
@@ -79,6 +79,70 @@
                     </li>
                     <li class="submenu-item ">
                         <a href="{{route('Departement.index')}}">Liste</a>
+                    </li>
+                    
+                </ul>
+            </li>
+            <li
+                class="sidebar-item  has-sub">
+                <a href="#" class='sidebar-link'>
+                    <i class="bi bi-collection-fill"></i>
+                    <span>Service</span>
+                </a>
+                <ul class="submenu ">
+                    <li class="submenu-item ">
+                        <a href="{{route('Service.create')}}">Ajout</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="{{route('Service.index')}}">Liste</a>
+                    </li>
+                    
+                </ul>
+            </li>
+            <li
+                class="sidebar-item  has-sub">
+                <a href="#" class='sidebar-link'>
+                    <i class="bi bi-collection-fill"></i>
+                    <span>Poste</span>
+                </a>
+                <ul class="submenu ">
+                    <li class="submenu-item ">
+                        <a href="{{route('Poste.create')}}">Ajout</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="{{route('Poste.index')}}">Liste</a>
+                    </li>
+                    
+                </ul>
+            </li>
+            <li
+                class="sidebar-item  has-sub">
+                <a href="#" class='sidebar-link'>
+                    <i class="bi bi-collection-fill"></i>
+                    <span>Avantages</span>
+                </a>
+                <ul class="submenu ">
+                    <li class="submenu-item ">
+                        <a href="{{route('Avantage.create')}}">Ajout</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="{{route('Avantage.index')}}">Liste</a>
+                    </li>
+                    
+                </ul>
+            </li>
+            <li
+                class="sidebar-item  has-sub">
+                <a href="#" class='sidebar-link'>
+                    <i class="bi bi-collection-fill"></i>
+                    <span>Retenues</span>
+                </a>
+                <ul class="submenu ">
+                    <li class="submenu-item ">
+                        <a href="{{route('Retenu.create')}}">Ajout</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="{{route('Retenu.index')}}">Liste</a>
                     </li>
                     
                 </ul>
@@ -104,14 +168,14 @@
                 class="sidebar-item  has-sub">
                 <a href="#" class='sidebar-link'>
                     <i class="bi bi-stack"></i>
-                    <span>Demande de Fiche</span>
+                    <span>Fiche de Paie</span>
                 </a>
                 <ul class="submenu ">
                     <li class="submenu-item ">
-                        <a href="{{route('Demande.create')}}">Ajout</a>
+                        <a href="{{route('Fiche.create')}}">Ajout</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="{{route('Demande.index')}}">Liste</a>
+                        <a href="{{route('Fiche.index')}}">Liste</a>
                     </li>
                     
 
@@ -119,28 +183,21 @@
             </li>
             
             
+            
             <li
                 class="sidebar-item  has-sub">
                 <a href="#" class='sidebar-link'>
                     <i class="bi bi-grid-1x2-fill"></i>
-                    <span>Layouts</span>
+                    <span>Affecter Poste</span>
                 </a>
                 <ul class="submenu ">
                     <li class="submenu-item ">
-                        <a href="#">Default Layout</a>
+                        <a href="{{route('Affectation.create')}}">Affectation</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="#">1 Column</a>
+                        <a href="{{route('Affectation.index')}}">Liste</a>
                     </li>
-                    <li class="submenu-item ">
-                        <a href="layout-vertical-navbar.html">Vertical Navbar</a>
-                    </li>
-                    <li class="submenu-item ">
-                        <a href="layout-rtl.html">RTL Layout</a>
-                    </li>
-                    <li class="submenu-item ">
-                        <a href="layout-horizontal.html">Horizontal Menu</a>
-                    </li>
+                    
                 </ul>
             </li>
             

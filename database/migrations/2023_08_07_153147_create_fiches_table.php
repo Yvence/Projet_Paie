@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAvantagesTable extends Migration
+class CreateFichesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateAvantagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('avantages', function (Blueprint $table) {
+        Schema::create('fiches', function (Blueprint $table) {
             $table->id();
-            $table->string('nom');
-            $table->string('valeur');
+            $table->string('salbrute');
+            $table->string('salNet');
+            $table->unsignedBigInteger('contrat_id');
+            $table->foreign('contrat_id')->references('id')->on('contrats');
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ class CreateAvantagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('avantages');
+        Schema::dropIfExists('fiches');
     }
 }

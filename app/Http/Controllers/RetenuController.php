@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Avantage;
+use App\Models\Retenu;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Request as HttpFoundationRequest;
 
-class AvantageController extends Controller
+class RetenuController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class AvantageController extends Controller
      */
     public function index()
     {
-        $avantage=Avantage::all();
-        return view('Avantage.index',['avantages'=>$avantage]);
+        $retenu=Retenu::all();
+        return view('Retenu.index',['retenus'=>$retenu]);
     }
 
     /**
@@ -26,7 +25,7 @@ class AvantageController extends Controller
      */
     public function create()
     {
-        return view('Avantage.create');
+        return view('Retenu.create');
     }
 
     /**
@@ -37,17 +36,17 @@ class AvantageController extends Controller
      */
     public function store(Request $request)
     {
-        Avantage::create($request->all());
-        return redirect()->route('Avantage.index');
+        Retenu::create($request->all());
+        return redirect()->route('Retenu.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Avantage  $avantage
+     * @param  \App\Models\Retenu  $retenu
      * @return \Illuminate\Http\Response
      */
-    public function show(Avantage $avantage)
+    public function show(Retenu $retenu)
     {
         //
     }
@@ -55,39 +54,33 @@ class AvantageController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
+     * @param  \App\Models\Retenu  $retenu
      * @return \Illuminate\Http\Response
-     * @param  \Illuminate\Http\Request  $request
      */
-    public function edit(Request $request,$id=null)
+    public function edit(Retenu $retenu)
     {
-        $id=$request->query->get("id");
-        $avantage=Avantage::find($id);
-        dd($avantage,$id); 
-        return view('Avantage.edit',['avantage'=>$avantage]);
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Avantage  $avantage
+     * @param  \App\Models\Retenu  $retenu
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Retenu $retenu)
     {
-        //$avantage=Avantage::find($id);
-        $avantage=new Avantage();
-        $avantage->update($request->all());
-        return redirect()->route('Avantage.index');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Avantage  $avantage
+     * @param  \App\Models\Retenu  $retenu
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Avantage $avantage)
+    public function destroy(Retenu $retenu)
     {
         //
     }

@@ -3,9 +3,9 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-6">
             <div class="card">
-                <div class="card-header"><marquee behavior="" direction="right"> <h2>Espace de connexion </h2></marquee></div>
+                <div class="card-header"><center><h2>Espace de connexion </h2></center></div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">

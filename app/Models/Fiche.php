@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Fiche extends Model
 {
     use HasFactory;
-    protected $fillable=['contrat_id','salbrute','salNet'];
+    protected $fillable=['contrat_id','code','salbrute','salNet'];
 
 }

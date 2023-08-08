@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Fiche;
+use App\Models\Contrat;
 use Illuminate\Http\Request;
 
 class FicheController extends Controller
@@ -14,7 +15,8 @@ class FicheController extends Controller
      */
     public function index()
     {
-        //
+        $fiche=Fiche::all();
+        return view('Fiche.index',['fiches'=>$fiche]);
     }
 
     /**
@@ -24,7 +26,9 @@ class FicheController extends Controller
      */
     public function create()
     {
-        //
+        $contrats=Contrat::all();
+        
+        return view('Fiche.create',compact('contrats'));
     }
 
     /**
@@ -35,7 +39,8 @@ class FicheController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Fiche::create($request->all());
+        return redirect()->route('Fiche.index');
     }
 
     /**

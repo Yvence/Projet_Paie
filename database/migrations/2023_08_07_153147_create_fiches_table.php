@@ -15,6 +15,7 @@ class CreateFichesTable extends Migration
     {
         Schema::create('fiches', function (Blueprint $table) {
             $table->id();
+            $table->string("code");
             $table->string('salbrute');
             $table->string('salNet');
             $table->unsignedBigInteger('contrat_id');

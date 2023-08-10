@@ -58,11 +58,10 @@ class AvantageController extends Controller
      * @return \Illuminate\Http\Response
      * @param  \Illuminate\Http\Request  $request
      */
-    public function edit(Request $request,$id=null)
+    public function edit($id=null)
     {
-        $id=$request->query->get("id");
+         
         $avantage=Avantage::find($id);
-        dd($avantage,$id); 
         return view('Avantage.edit',['avantage'=>$avantage]);
     }
 
@@ -73,11 +72,13 @@ class AvantageController extends Controller
      * @param  \App\Models\Avantage  $avantage
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function miseajour(Request $request)
     {
-        //$avantage=Avantage::find($id);
-        $avantage=new Avantage();
-        $avantage->update($request->all());
+        
+        $avantage=Avantage::find($request->request->get("id"));
+        $avantage->nom = ($request->get("nom")) ;
+        $avantage->valeur = ($request->get("valeur"));
+        $avantage->update();
         return redirect()->route('Avantage.index');
     }
 
@@ -87,8 +88,15 @@ class AvantageController extends Controller
      * @param  \App\Models\Avantage  $avantage
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Avantage $avantage)
+    public function destroy($id)
     {
-        //
+        $avantage=Avantage::find($id);
+        if($avantage){
+            $avantage->delete();
+            session()->flash('message',"Suppression effectuée avec succès");
+        }else{
+            session()->flash('message',"Erreur l'élément que vous essayez de supprimer n'existe pas");
+        }
+        return redirect()->route('Avantage.index');
     }
 }

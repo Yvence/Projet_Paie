@@ -79,10 +79,11 @@ Route::prefix('Contrats')->group(function(){
    });
    Route::prefix('Avantage')->group(function(){
     Route::get('/',[AvantageController::class,'index'])->name('Avantage.index');
+    Route::get('/destroy/{id}',[AvantageController::class,'destroy'])->name('Avantage.destroy');
     Route::get('/create',[AvantageController::class,'create'])->name('Avantage.create');
-    Route::get('/edit/{id}/iii',[AvantageController::class,'edit'])->name('Avantage.edit');
+    Route::get('/edit/{id}',[AvantageController::class,'edit'])->name('Avantage.edit');
     Route::post('/store',[AvantageController::class,'store'])->name('Avantage.store');
-    Route::post('/update',[AvantageController::class,'update'])->name('Avantage.update');
+    Route::post('/update',[AvantageController::class,'miseajour'])->name('Avantage.miseajour');
    });
    Route::prefix('Retenues')->group(function(){
     Route::get('/',[RetenuController::class,'index'])->name('Retenu.index');

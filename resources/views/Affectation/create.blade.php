@@ -12,7 +12,7 @@
       <select name="employé_nom" id="employé_id" class="form-control">
         <option value=""></option>
         @foreach($personnels as $personnel)
-        <option value="{{$personnel->id}}">{{$personnel->nom}}</option>
+        <option value="{{$personnel->id}}">{{$personnel->nom}}  {{$personnel->prenom}}</option>
         @endforeach
       </select>
       <div class="mb-3">

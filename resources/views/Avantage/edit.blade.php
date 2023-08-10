@@ -1,10 +1,9 @@
 @extends('welcome')
 
 @section('contenu')
- <form action="{{route('Avantage.update')}}" method="post">
+ <form action="{{route('Avantage.miseajour', $avantage)}}" method="post">
   @csrf
-  
-  
+  @method("post")
     <section id="multiple-column-form">
         <div class="row match-height">
             <div class="col-12">

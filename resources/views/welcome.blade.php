@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projet_Paie</title>
     
+    <link rel="stylesheet" href="{{asset('assets/extensions/choices.js/public/assets/styles/choices.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/main/app.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/main/app-dark.css')}}">
     <link rel="shortcut icon" href="{{asset('assets/images/logo/favicon.svg')}}" type="image/x-icon">
@@ -48,24 +49,30 @@
                     <span>Tableau de Bord</span>
                 </a>
             </li>
-            
             <li
+                class="sidebar-item  has-sub">
+                <a href="#" class='sidebar-link'>
+                    <i class="bi bi-stack"></i>
+                    <span>Parametres</span>
+                </a>
+                <ul class="submenu ">
+                    <li class="submenu-item ">
+                    <li
                 class="sidebar-item  has-sub">
                 <a href="#" class='sidebar-link'>
                     <i class="bi bi-stack"></i>
                     <span>Personnel</span>
                 </a>
                 <ul class="submenu ">
+                   
                     <li class="submenu-item ">
-                        <a href="{{route('Employé.create')}}">Ajout</a>
-                    </li>
-                    <li class="submenu-item ">
-                        <a href="{{route('Employé.index')}}">Liste</a>
+                        <a href="{{route('Employe.index')}}">Liste</a>
                     </li>
                     
 
                 </ul>
             </li>
+            
             
             <li
                 class="sidebar-item  has-sub">
@@ -74,9 +81,6 @@
                     <span>Departement</span>
                 </a>
                 <ul class="submenu ">
-                    <li class="submenu-item ">
-                        <a href="{{route('Departement.create')}}">Ajout</a>
-                    </li>
                     <li class="submenu-item ">
                         <a href="{{route('Departement.index')}}">Liste</a>
                     </li>
@@ -90,9 +94,7 @@
                     <span>Service</span>
                 </a>
                 <ul class="submenu ">
-                    <li class="submenu-item ">
-                        <a href="{{route('Service.create')}}">Ajout</a>
-                    </li>
+                    
                     <li class="submenu-item ">
                         <a href="{{route('Service.index')}}">Liste</a>
                     </li>
@@ -106,9 +108,7 @@
                     <span>Poste</span>
                 </a>
                 <ul class="submenu ">
-                    <li class="submenu-item ">
-                        <a href="{{route('Poste.create')}}">Ajout</a>
-                    </li>
+                   
                     <li class="submenu-item ">
                         <a href="{{route('Poste.index')}}">Liste</a>
                     </li>
@@ -122,9 +122,7 @@
                     <span>Avantages</span>
                 </a>
                 <ul class="submenu ">
-                    <li class="submenu-item ">
-                        <a href="{{route('Avantage.create')}}">Ajout</a>
-                    </li>
+                   
                     <li class="submenu-item ">
                         <a href="{{route('Avantage.index')}}">Liste</a>
                     </li>
@@ -138,9 +136,7 @@
                     <span>Retenues</span>
                 </a>
                 <ul class="submenu ">
-                    <li class="submenu-item ">
-                        <a href="{{route('Retenu.create')}}">Ajout</a>
-                    </li>
+                    
                     <li class="submenu-item ">
                         <a href="{{route('Retenu.index')}}">Liste</a>
                     </li>
@@ -154,9 +150,7 @@
                     <span>Contrat</span>
                 </a>
                 <ul class="submenu ">
-                    <li class="submenu-item ">
-                        <a href="{{route('Contrat.create')}}">Ajout</a>
-                    </li>
+
                     <li class="submenu-item ">
                         <a href="{{route('Contrat.index')}}">Liste</a>
                     </li>
@@ -171,19 +165,12 @@
                     <span>Fiche de Paie</span>
                 </a>
                 <ul class="submenu ">
-                    <li class="submenu-item ">
-                        <a href="{{route('Fiche.create')}}">Ajout</a>
-                    </li>
+
                     <li class="submenu-item ">
                         <a href="{{route('Fiche.index')}}">Liste</a>
                     </li>
-                    
-
                 </ul>
-            </li>
-            
-            
-            
+            </li>  
             <li
                 class="sidebar-item  has-sub">
                 <a href="#" class='sidebar-link'>
@@ -191,33 +178,23 @@
                     <span>Affecter Poste</span>
                 </a>
                 <ul class="submenu ">
-                    <li class="submenu-item ">
-                        <a href="{{route('Affectation.create')}}">Affectation</a>
-                    </li>
+                    
                     <li class="submenu-item ">
                         <a href="{{route('Affectation.index')}}">Liste</a>
                     </li>
-                    
+
                 </ul>
             </li>
             
-            
-            
-            
-            
-            
+                </ul>
+            </li>
             <li
                 class="sidebar-item  ">
                 <a href="ui-file-uploader.html" class='sidebar-link'>
                     <i class="bi bi-cloud-arrow-up-fill"></i>
                     <span>Se deconnecter</span>
                 </a>
-            </li>
-            
-            
-            
-           
-            
+            </li> 
             
     </div>
 </div>
@@ -301,11 +278,14 @@
                                     <h6 class="text-muted font-semibold">Total Departement</h6>
                                     <h6 class="font-extrabold mb-0"></h6>
                                 </div>
+
+                                
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            
             <div class="card">
                         <div class="card-body">
                             @yield("contenu")
@@ -320,7 +300,8 @@
 <!-- Need: Apexcharts -->
 <script src="{{asset('assets/extensions/apexcharts/apexcharts.min.js')}}"></script>
 <script src="{{asset('assets/js/pages/dashboard.js')}}"></script>
-
+<script src="{{asset('assets/extensions/choices.js/public/assets/scripts/choices.js')}}"></script>
+<script src="{{asset('assets/js/pages/form-element-select.js')}}"></script>
 </body>
 
 </html>

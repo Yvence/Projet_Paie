@@ -57,9 +57,10 @@ class RetenuController extends Controller
      * @param  \App\Models\Retenu  $retenu
      * @return \Illuminate\Http\Response
      */
-    public function edit(Retenu $retenu)
+    public function edit($id=null)
     {
-        //
+        $retenu=Retenu::find($id);
+        return view('Retenu.edit',['retenu'=>$retenu]);
     }
 
     /**
@@ -69,9 +70,14 @@ class RetenuController extends Controller
      * @param  \App\Models\Retenu  $retenu
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Retenu $retenu)
+    public function update(Request $request)
     {
-        //
+        $retenu=Retenu::find($request->request->get("id"));
+        $retenu->nom = ($request->get("nom")) ;
+        $retenu->valeur = ($request->get("valeur"));
+        $retenu->type_retenu = ($request->get("type_retenu"));
+        $retenu->update();
+        return redirect()->route('Retenu.index');
     }
 
     /**
@@ -80,8 +86,15 @@ class RetenuController extends Controller
      * @param  \App\Models\Retenu  $retenu
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Retenu $retenu)
+    public function destroy( $id)
     {
-        //
+        $retenu=Retenu::find($id);
+        if($retenu){
+            $retenu->delete();
+            session()->flash('message',"Suppression effectuée avec succès");
+        }else{
+            session()->flash('message',"Erreur l'élément que vous essayez de supprimer n'existe pas");
+        }
+        return redirect()->route('Retenu.index');
     }
 }

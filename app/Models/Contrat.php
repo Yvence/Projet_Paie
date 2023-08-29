@@ -9,4 +9,9 @@ class Contrat extends Model
 {
     use HasFactory;
     protected $fillable=['numero','date_debut','date_fin','statut','salaire_base'];
+
+    public function retenus(){
+        return $this->belongsToMany(Retenu::class);
+    }
 }
+

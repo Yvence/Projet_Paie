@@ -51,17 +51,19 @@ class DepartementController extends Controller
     {
         //
     }
-
-    /**
+ /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Departement  $departement
      * @return \Illuminate\Http\Response
+     * @param  \Illuminate\Http\Request  $request
      */
-    public function edit(Departement $departement)
-    {
+
         
-        return view('Departement.edit',['departement'=>$departement]);
+     public function edit($id=null)
+        {
+             
+            $departement=Departement::find($id);
+            return view('Departement.edit',['departement'=>$departement]);
     
     }
 
@@ -72,9 +74,13 @@ class DepartementController extends Controller
      * @param  \App\Models\Departement  $departement
      * @return \Illuminate\Http\Response
      */
-     public function update(Request $request, Departement $departement)
+    public function miseajour(Request $request,$id)
     {
-        //
+        
+        $departement=Departement::find($id);
+        $departement->nom = $request->nom;
+        $departement->update();
+        return redirect()->route('Departement.index');
     }
 
     /**
@@ -83,8 +89,15 @@ class DepartementController extends Controller
      * @param  \App\Models\Departement  $departement
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Departement $departement)
+    public function destroy($id)
     {
-        //
+        $departement=Departement::find($id);
+        if($departement){
+            $departement->delete();
+            session()->flash('message',"Suppression effectuée avec succès");
+        }else{
+            session()->flash('message',"Erreur l'élément que vous essayez de supprimer n'existe pas");
+        }
+        return redirect()->route('Departement.index');
     }
 }

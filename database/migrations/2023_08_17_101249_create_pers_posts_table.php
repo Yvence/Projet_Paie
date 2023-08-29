@@ -13,12 +13,12 @@ class CreatePersPostsTable extends Migration
      */
     public function up()
     {
-        Schema::create('pers__posts', function (Blueprint $table) {
+        Schema::create('pers_posts', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('Personnel_id');
-            $table->foreign('Personnel_id')->references('id')->on('personnels');
-            $table->unsignedBigInteger('contrat_id');
-            $table->foreign('contrat_id')->references('id')->on('contrats');
+            $table->integer('employe_id');
+            $table->foreign('employe_id')->references('id')->on('employes');
+            $table->integer('poste_id');
+            $table->foreign('poste_id')->references('id')->on('postes');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreatePersPostsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pers__posts');
+        Schema::dropIfExists('pers_posts');
     }
 }

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Affectation;
 use App\Models\Poste;
-use App\Models\Employé;
+use App\Models\Employe;
 use Illuminate\Http\Request;
 
 class AffectationController extends Controller
@@ -27,7 +27,7 @@ class AffectationController extends Controller
      */
     public function create()
     {
-        $personnels=Employé::all();
+        $personnels=Employe::all();
         $postes=Poste::all();
         
         return view('Affectation.create',compact('personnels','postes'));
@@ -62,11 +62,13 @@ class AffectationController extends Controller
      * @param  \App\Models\Affectation  $affectation
      * @return \Illuminate\Http\Response
      */
-    public function edit(Affectation $affectation)
+    public function edit($id=null)
     {
-        //
+        $personnels=Employe::all();
+        $postes=Poste::all();
+        $affectation=Affectation::find($id);
+        return view('Affectation.edit',['affectation'=>$affectation],compact('personnels','postes'));
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -74,9 +76,14 @@ class AffectationController extends Controller
      * @param  \App\Models\Affectation  $affectation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Affectation $affectation)
+    public function update(Request $request)
     {
-        //
+         
+        $affectation=Affectation::find($request->request->get("id"));
+        $affectation->employé_id= ($request->get("employé_id")) ;
+        $affectation->poste_nom = ($request->get("poste_nom"));
+        $affectation->update();
+        return redirect()->route('Affectation.index');
     }
 
     /**
@@ -85,8 +92,15 @@ class AffectationController extends Controller
      * @param  \App\Models\Affectation  $affectation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Affectation $affectation)
+    public function destroy($id)
     {
-        //
+        $affectation=Affectation::find($id);
+        if($affectation){
+            $affectation->delete();
+            session()->flash('message',"Suppression effectuée avec succès");
+        }else{
+            session()->flash('message',"Erreur l'élément que vous essayez de supprimer n'existe pas");
+        }
+        return redirect()->route('Affectation.index');
     }
 }

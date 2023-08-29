@@ -15,12 +15,13 @@
     @foreach($postes as $poste)
     <tr>
       <td>{{$poste->id}}</td>
-      <td>{{$poste->service_id}}</td>
+      <td>{{$poste->service->nom}}</td>
       <td>{{$poste->nom}}</td>
       
+      
 
-      <td><a href="{{route('Poste.edit',['poste'=>$poste])}}" class="btn btn-success">Modifier</a></td>
-       <td><a href="" class="btn btn-danger">Supprimer</a></td>
+      <td><a href="{{route('Poste.edit',['id'=>$poste->id])}}" class="btn btn-success">Modifier</a></td>
+       <td><a href="{{route('Poste.destroy',['id'=>$poste->id])}}" class="btn btn-danger">Supprimer</a></td>
     </tr>
     @endforeach
 </tbody>

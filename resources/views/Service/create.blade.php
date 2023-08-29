@@ -8,7 +8,7 @@
     @method('post')
     <div class="container border">
     <div class="mb-3">
-      <label for="setting-input-3" class="form-label"><h2>Département</h2></label>
+      <label for="setting-input-3" class="form-label"><h4>Département</h4></label>
       <select name="departement_id" id="departement_id" class="form-control">
         <option value=""></option>
         @foreach($departements as $departement)
@@ -17,7 +17,7 @@
       </select>
 
     <div class="mb-3">
-      <h2>Nom Du Service</h2>
+      <h4>Nom Du Service</h4>
       <input type="text" name="nom" id="nom" class="form-control" placeholder="Entrez le Service" aria-describedby="helpId" required>
     </div>
     <div class="row">

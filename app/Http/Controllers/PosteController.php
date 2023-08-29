@@ -60,9 +60,13 @@ class PosteController extends Controller
      * @param  \App\Models\Poste  $poste
      * @return \Illuminate\Http\Response
      */
-    public function edit(Poste $poste)
-    {
-        //
+    public function edit($id=null)
+    {   $service=Service::all();
+        $poste=Poste::find($id);
+        return view('Poste.edit',[
+            'poste'=>$poste,
+            'service'=>$service,
+        ]);
     }
 
     /**
@@ -72,12 +76,16 @@ class PosteController extends Controller
      * @param  \App\Models\Poste  $poste
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Poste $poste)
+    public function update(Request $request,$id)
     {
-        //
+        $poste=Poste::find($id);
+        $poste->service_id = $request->input('service_id');
+        $poste->nom = $request->nom;
+        $poste->save();
+        return redirect()->route('Poste.index');
     }
 
-    /**
+    /*
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Poste  $poste

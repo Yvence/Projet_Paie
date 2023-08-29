@@ -15,11 +15,13 @@ class CreateContratsTable extends Migration
     {
         Schema::create('contrats', function (Blueprint $table) {
             $table->id();
-            $table->string('numero',15)->unique();
+            $table->string('numero',15);
             $table->date('date_debut');
             $table->date('date_fin');
             $table->string('statut');
             $table->integer('salaire_base');
+            $table->integer('pers_post');
+            $table->foreign('pers_post')->references('id')->on('pers_posts');
 
             $table->timestamps();
         });

@@ -8,15 +8,16 @@
     @method('post')
     <div class="container border">
     <div class="mb-3">
-      <label for="setting-input-3" class="form-label"><h2>Personnel</h2></label>
-      <select name="employé_nom" id="employé_id" class="form-control">
+      <label for="setting-input-3" class="form-label"><h3>Personnel</h3>
+      </label>
+      <select name="employe_nom" id="employe_id" class="form-control">
         <option value=""></option>
         @foreach($personnels as $personnel)
         <option value="{{$personnel->id}}">{{$personnel->nom}}  {{$personnel->prenom}}</option>
         @endforeach
       </select>
       <div class="mb-3">
-      <label for="setting-input-3" class="form-label"><h2>Poste</h2></label>
+      <label for="setting-input-3" class="form-label"><h3>Poste</h3></label>
       <select name="poste_nom" id="poste_nom" class="form-control">
         <option value=""></option>
         @foreach($postes as $poste)

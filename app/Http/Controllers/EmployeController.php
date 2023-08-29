@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 
 use Illuminate\Http\Request;
-use App\Models\Employé;
+use App\Models\PersPost;
 use App\Models\Departement;
+use App\Models\Employe;
+use App\Models\Poste;
 
 class EmployeController extends Controller
 {
@@ -16,8 +18,9 @@ class EmployeController extends Controller
      */
     public function index()
     {
-        $employé=Employé::all();
-        return view('Employé.index',['employés'=>$employé]);
+        $employe = Employe::all();
+        return view('Employe.index',['employes'=>$employe]);
+
     }
     
 
@@ -28,9 +31,9 @@ class EmployeController extends Controller
      */
     public function create()
     {
-        $departements=Departement::all();
+        $postes = Poste::all();
         
-        return view('Employé.create',compact('departements'));
+        return view('Employe.create',["postes"=>$postes]);
     }
 
     /**
@@ -41,8 +44,23 @@ class EmployeController extends Controller
      */
     public function store(Request $request)
     {
-        Employé::create($request->all());
-        return redirect()->route('Employé.index');
+
+        
+        $employe = new Employe();
+        $employe->nom = $request->get("nom");
+        $employe->prenom = $request->get("prenom");
+        $employe->email = $request->get("email");
+        $employe->telephone = $request->get("telephone");
+        $employe->matricule = $request->get("matricule");
+        $employe->date_naissance = $request->get("date_naissance");
+        $employe->save();
+        foreach($request->get("poste") as $p){;
+         $persPost =  new PersPost();
+         $persPost->employe_id= $employe->id;
+         $persPost->poste_id= (int)$p;
+         $persPost->save();
+        }
+        return redirect()->route('Employe.index');
     }
 
     /**
@@ -62,10 +80,10 @@ class EmployeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Employé $employé)
+    public function edit($id=null)
     {
-        $departements=Departement::all();
-        return view('Employé.edit',['employé'=>$employé],compact('departements'));
+        $employe=Employe::find($id);
+        return view('Employe.edit',['Employe'=>$employe]);
     }
 
     /**
@@ -75,9 +93,17 @@ class EmployeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $employe=Employe::find($request->request->get("id"));
+        $employe->nom = $request->get("nom");
+        $employe->prenom = $request->get("prenom");
+        $employe->email = $request->get("email");
+        $employe->telephone = $request->get("telephone");
+        $employe->matricule = $request->get("matricule");
+        $employe->date_naissance = $request->get("date_naissance");
+        $employe->update();
+        return redirect()->route('Employe.index');
     }
 
     /**
@@ -88,6 +114,14 @@ class EmployeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $employe=Employe::find($id);
+        if($employe){
+            $employe->delete();
+            session()->flash('message',"Suppression effectuée avec succès");
+        }else{
+            session()->flash('message',"Erreur l'élément que vous essayez de supprimer n'existe pas");
+        }
+        return redirect()->route('Employe.index');
     }
-}
+    }
+

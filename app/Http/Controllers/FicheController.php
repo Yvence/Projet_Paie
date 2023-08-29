@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Avantage;
+use App\Models\Retenu;
 use App\Models\Fiche;
 use App\Models\Contrat;
 use Illuminate\Http\Request;
@@ -15,8 +17,12 @@ class FicheController extends Controller
      */
     public function index()
     {
+        $avantage=Avantage::all();
         $fiche=Fiche::all();
-        return view('Fiche.index',['fiches'=>$fiche]);
+        return view('Fiche.index',[
+            'fiches'=>$fiche,
+            'avantages'=>$avantage,
+        ]);
     }
 
     /**
@@ -26,9 +32,16 @@ class FicheController extends Controller
      */
     public function create()
     {
-        $contrats=Contrat::all();
+        $avantage=Avantage::all();
+        $retenu=Retenu::all();
+        $contrat=Contrat::all();
         
-        return view('Fiche.create',compact('contrats'));
+        return view('Fiche.create',
+            ["avantage"=>$avantage,
+            "retenu"=>$retenu,
+            "contrat"=>$contrat,
+            ]
+    );
     }
 
     /**
@@ -39,8 +52,8 @@ class FicheController extends Controller
      */
     public function store(Request $request)
     {
-        Fiche::create($request->all());
-        return redirect()->route('Fiche.index');
+        
+       
     }
 
     /**
@@ -86,5 +99,9 @@ class FicheController extends Controller
     public function destroy(Fiche $fiche)
     {
         //
+    }
+    public function CalculSalaire(Request $request){
+        
+        
     }
 }

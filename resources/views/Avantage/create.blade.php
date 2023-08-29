@@ -10,7 +10,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Avantages</h4>
+                        <h2 class="card-title">Avantages</h2>
                     </div>
                     <div class="card-content">
                         <div class="card-body">

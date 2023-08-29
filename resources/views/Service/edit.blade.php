@@ -3,16 +3,19 @@
 @section('contenu')
 
 
-   <form action="{{route('Service.store')}}" method="post">
+   <form action="{{route('Service.miseajour',['id'=>$service->id])}}" method="post">
     @csrf
-    @method('post')
+    @method("post")
     <div class="container border">
     <div class="mb-3">
       <label for="setting-input-3" class="form-label"><h2>Département</h2></label>
       <select name="departement_id" id="departement_id" value="{{$service->departement_id}}" class="form-control">
         <option value=""></option>
-        @foreach($departements as $departement)
-        <option value="{{$departement->id}}">{{$departement->nom}}</option>
+        @foreach($departement as $departement)
+        @if($service->departement_id == $departement->id)
+        <option selected value="{{$departement->id}}">{{$departement->nom}}</option>
+        @endif
+        <option  value="{{$departement->id}}">{{$departement->nom}}</option>
         @endforeach
       </select>
 

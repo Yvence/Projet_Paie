@@ -60,10 +60,15 @@ class ServiceController extends Controller
      * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function edit(Service $service)
-    {
-        $departements=Departement::all();
-        return view('Service.edit',compact('departements'),['service'=>$service]);
+    public function edit($id=null)
+        {
+            $departement=Departement::all();
+            $service=Service::find($id);
+            return view('Service.edit',[
+                'service'=>$service,
+                'departement'=>$departement,
+            ]);
+    
     }
 
     /**
@@ -73,9 +78,13 @@ class ServiceController extends Controller
      * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Service $service)
+    public function miseajour(Request $request,$id)
     {
-        //
+        $service=Service::find($id);
+        $service->departement_id = $request->input('departement_id');
+        $service->nom = $request->nom;
+        $service->save();
+        return redirect()->route('Service.index');
     }
 
     /**
@@ -84,8 +93,16 @@ class ServiceController extends Controller
      * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Service $service)
+    public function destroy($id)
     {
-        //
+        $service=Service::find($id);
+        if($service){
+            $service->delete();
+            session()->flash('message',"Suppression effectuée avec succès");
+        }else{
+            session()->flash('message',"Erreur l'élément que vous essayez de supprimer n'existe pas");
+        }
+        return redirect()->route('Service.index');
+
     }
 }

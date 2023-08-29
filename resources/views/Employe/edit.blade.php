@@ -1,7 +1,7 @@
 @extends('welcome')
 
 @section('contenu')
- <form action="{{route('Employé.store')}}" method="post">
+ <form action="{{route('Employe.update',['id'=>$employe->id])}}" method="post">
   @csrf
   @method('post')
   
@@ -19,37 +19,37 @@
                                     <div class="col-md-6 col-12">
                                         <div class="form-group mandatory">
                                             <label for="nom" class="form-label">Nom</label>
-                                            <input type="text" id="nom" class="form-control" placeholder="Nom" name="nom" data-parsley-required="true">
+                                            <input type="text" id="nom" class="form-control" value="{{$employe->nom}}" placeholder="Nom" name="nom" data-parsley-required="true">
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
                                             <label for="prenom" class="form-label">Prenom</label>
-                                            <input type="text" id="prenom" class="form-control" placeholder="Prenom" name="prenom">
+                                            <input type="text" id="prenom" class="form-control" value="{{$employe->prenom}}" placeholder="Prenom" name="prenom">
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
-                                            <label for="adresse" class="form-label">Numéro Matricule</label>
-                                            <input type="number" id="matricule" class="form-control" placeholder="Numéro Matricule" name="matricule" data-parsley-restricted-city="Jakarta">
+                                            <label for="matricule" class="form-label">Numéro Matricule</label>
+                                            <input type="number" id="matricule" value="{{$employe->matricule}}" class="form-control"  placeholder="Numéro Matricule" name="matricule" data-parsley-restricted-city="Jakarta">
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
                                             <label for="telephone" class="form-label">Telephone</label>
-                                            <input type="number" id="telephone" class="form-control" name="telephone" placeholder="Telephone">
+                                            <input type="number" id="telephone" name="telephone" value="{{$employe->telephone}}" class="form-control"  placeholder="Telephone">
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
                                             <label for="date_naissance" class="form-label">Date de naissance</label>
-                                            <input type="date" id="date_naissance" class="form-control" name="date_naissance" placeholder="Date de Naissance">
+                                            <input type="date" id="date_naissance"  name="date_naissance"  value="{{$employe->date_naissance}}" class="form-control" placeholder="Date de Naissance">
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <div class="form-group mandatory">
                                             <label for="email" class="form-label">Email</label>
-                                            <input type="email" id="email" class="form-control" name="email" placeholder="Email" data-parsley-required="true">
+                                            <input type="email" id="email"  name="email" value="{{$employe->email}}" class="form-control" placeholder="Email"  data-parsley-required="true">
                                         </div>
                                     </div>
                                   

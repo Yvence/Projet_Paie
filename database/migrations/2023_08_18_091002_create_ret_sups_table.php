@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRetenusTable extends Migration
+class CreateRetSupsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateRetenusTable extends Migration
      */
     public function up()
     {
-        Schema::create('retenus', function (Blueprint $table) {
+        Schema::create('ret_sups', function (Blueprint $table) {
             $table->id();
-            $table->string('nom');
-            $table->string('type_retenu');
-            $table->string('valeur');
+            $table->unsignedBigInteger('retenu_id');
+            $table->foreign('retenu_id')->references('id')->on('retenus');
+            $table->unsignedBigInteger('fiche_id');
+            $table->foreign('fiche_id')->references('id')->on('fiches');
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreateRetenusTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('retenus');
+        Schema::dropIfExists('ret_sups');
     }
 }

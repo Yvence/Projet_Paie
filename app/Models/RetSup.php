@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Employé extends Model
+class RetSup extends Model
 {
     use HasFactory;
-    protected $fillable=['nom','prenom','telephone','date_naissance','matricule','email'];
+    protected $fillable=['retenu_id','fiche_id'];
 }

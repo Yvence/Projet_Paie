@@ -19,13 +19,22 @@
                                     <div class="col-md-6 col-12">
                                         <div class="form-group mandatory">
                                             <label for="nom" class="form-label">Nom</label>
-                                            <input type="text" id="nom" class="form-control" placeholder="Nom" name="nom" data-parsley-required="true">
+                                            <input type="text" name="nom" id="nom" class="form-control" placeholder="Nom"  data-parsley-required="true">
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-12">
+                                    <div class="form-group">
+                                            <label for="type_retenu" class="form-label" placeholder="Selectionner un type">Type de Retenue</label>
+                                            <select class="form-control" id="type_retenu" name="type_retenu"  >
+                                                        <option value="obligatoire" >Obligatoire</option>
+                                                        <option value="Autres Retenues" >Autres Retenues</option>
+                                            </select>
+                                        </div>
+                    
+                                    <div class="col-md-6 col-12">
                                         <div class="form-group">
                                             <label for="prenom" class="form-label">Valeur</label>
-                                            <input type="number" id="valeur" class="form-control" placeholder="Valeur de l'avantage" name="valeur">
+                                            <input type="number" name="valeur" id="valeur" class="form-control" placeholder="Valeur de l'avantage" >
                                         </div>
                                     </div>
                                 
